@@ -1,3 +1,20 @@
+## Task
+
+The results of the R programs execution are stored in the figure_replica Directory
+
+Note:
+GetData.R 
+This program downloads and subset the information required for the graphs, 
+it creates a copy of the subset in the data subdirectory.
+
+As required:
+pot1.R
+pot2.R
+pot3.R
+pot4.R
+
+to create and save the graphs storing them in the figure_replica directory
+
 ## Introduction
 
 This assignment uses data from
