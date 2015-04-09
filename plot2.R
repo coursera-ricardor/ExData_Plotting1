@@ -67,9 +67,7 @@ exp_plot <- paste0(dWorkingDir,I_export_Plot,'/plot2.png')
 # png(exp_plot)
 #
 # V_par <- par()
-plot.ts(epc$Global_active_power,
-        ylab = "Global Active Power (kilowatts)",
-)
+plot.ts(epc$Global_active_power,xlab = "", ylab = "Global Active Power (kilowatts)")
 title(main = list('Plot 2',cex = 1.5),outer = TRUE, adj = 0.0)
 # par(V_par)
 # =================================================================================
