@@ -1,4 +1,4 @@
-# Program: plot1.R  
+# Program: plot3.R  
 # Author: Ricardo Rodriguez 2015/04
 #
 # Dataset:
@@ -61,18 +61,21 @@ epc$Date <- as.Date(epc$Date,"%d/%m/%Y")
 # =================================================================================
 # Creating the plot
 # =================================================================================
-exp_plot <- paste0(dWorkingDir,I_export_Plot,'/plot1.png')
-exp_plot <- paste0(dWorkingDir,'/plot1.png')
+exp_plot <- paste0(dWorkingDir,I_export_Plot,'/plot3.png')
+# exp_plot <- paste0(dWorkingDir,'/plot3.png')
 #
 # png(exp_plot)
 #
 # V_par <- par()
-hist(as.numeric(epc$Global_active_power), 
-     col="red", 
-     ps = 9,
-     xlab = "Global Active Power (kilowatts)",
-     main = "Global Active Power")
-title(main = list('Plot 1',cex = 1.5),outer = TRUE, adj = 0.0)
+# plot.ts(epc$Sub_metering_3, col = "blue",ylab = "Energy sub metering")
+# plot.new()
+plot(epc$Sub_metering_1,type='n',ylab='Energy sub metering', xlab="")
+lines(epc$Sub_metering_1, col = "black")
+lines(epc$Sub_metering_2, col = "red")
+lines(epc$Sub_metering_3,col="blue")
+legend("topright",c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), lty = 1,
+                    col = c("black","red","blue"), merge = TRUE)
+title(main = list('Plot 3',cex = 1.5),outer = TRUE, adj = 0.0)
 # par(V_par)
 # =================================================================================
 # Copy the plot to the file
@@ -94,4 +97,3 @@ rm(list=ls(pattern='v'))
 # =================================================================================
 # End of the Script
 # =================================================================================
-

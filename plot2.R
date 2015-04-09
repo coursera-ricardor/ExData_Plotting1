@@ -1,4 +1,4 @@
-# Program: plot1.R  
+# Program: plot2.R  
 # Author: Ricardo Rodriguez 2015/04
 #
 # Dataset:
@@ -61,18 +61,16 @@ epc$Date <- as.Date(epc$Date,"%d/%m/%Y")
 # =================================================================================
 # Creating the plot
 # =================================================================================
-exp_plot <- paste0(dWorkingDir,I_export_Plot,'/plot1.png')
-exp_plot <- paste0(dWorkingDir,'/plot1.png')
+exp_plot <- paste0(dWorkingDir,I_export_Plot,'/plot2.png')
+# exp_plot <- paste0(dWorkingDir,'/plot2.png')
 #
 # png(exp_plot)
 #
 # V_par <- par()
-hist(as.numeric(epc$Global_active_power), 
-     col="red", 
-     ps = 9,
-     xlab = "Global Active Power (kilowatts)",
-     main = "Global Active Power")
-title(main = list('Plot 1',cex = 1.5),outer = TRUE, adj = 0.0)
+plot.ts(epc$Global_active_power,
+        ylab = "Global Active Power (kilowatts)",
+)
+title(main = list('Plot 2',cex = 1.5),outer = TRUE, adj = 0.0)
 # par(V_par)
 # =================================================================================
 # Copy the plot to the file
@@ -94,4 +92,3 @@ rm(list=ls(pattern='v'))
 # =================================================================================
 # End of the Script
 # =================================================================================
-
