@@ -62,12 +62,15 @@ epc$Date <- as.Date(epc$Date,"%d/%m/%Y")
 # Creating the plot
 # =================================================================================
 exp_plot <- paste0(dWorkingDir,I_export_Plot,'/plot2.png')
-# exp_plot <- paste0(dWorkingDir,'/plot2.png')
+exp_plot <- paste0(dWorkingDir,'/plot2.png')
 #
 # png(exp_plot)
 #
 # V_par <- par()
-plot.ts(epc$Global_active_power,xlab = "", ylab = "Global Active Power (kilowatts)")
+
+# plot.ts(epc$Global_active_power,xlab = "", ylab = "Global Active Power (kilowatts)")
+
+with(epc,plot(Time,Global_active_power, type = 'l',xlab = "", ylab = "Global Active Power (kilowatts)"))
 title(main = list('Plot 2',cex = 1.5),outer = TRUE, adj = 0.0)
 # par(V_par)
 # =================================================================================
