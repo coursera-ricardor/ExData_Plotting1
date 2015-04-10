@@ -64,13 +64,15 @@ epc$Date <- as.Date(epc$Date,"%d/%m/%Y")
 exp_plot <- paste0(dWorkingDir,I_export_Plot,'/plot4.png')
 exp_plot <- paste0(dWorkingDir,'/plot4.png')
 #
-# png(exp_plot)
+# =================================================================================
+png(file=exp_plot,width= 480, height= 480)
 #
 v_par <- par()
 #
 # splitting the screen in 4
 #
 par(mfrow = c(2,2))
+# =================================================================================
 #
 # plot.ts(epc$Global_active_power,ylab = "Global Active Power")
 with(epc,plot(Time,Global_active_power, type = 'l',xlab = "", ylab = "Global Active Power"))
@@ -78,13 +80,17 @@ with(epc,plot(Time,Global_active_power, type = 'l',xlab = "", ylab = "Global Act
 # plot.ts(epc$Voltage,ylab = "Voltage")
 with(epc,plot(Time,Voltage, type = 'l',xlab = "datetime", ylab = "Voltage"))
 #
+# Graph 3
+#
 plot(epc$Time,epc$Sub_metering_1,type='n',ylab='Energy sub metering', xlab="")
 lines(epc$Time,epc$Sub_metering_1, col = "black")
 lines(epc$Time,epc$Sub_metering_2, col = "red")
 lines(epc$Time,epc$Sub_metering_3,col="blue")
-legend("topright",c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), lty = 1,
+legend("topright",c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), lty = c(1,1,1),
        xjust = 1,
-       col = c("black","red","blue"), merge = TRUE, cex = 0.5, bty = "n")
+       col = c("black","red","blue"),
+       merge = TRUE, 
+       cex = 0.5, bty = "n")
 #
 # plot.ts(epc$Global_reactive_power,ylab = "Global_reactive_power")
 with(epc,plot(Time,Voltage, type = 'l',xlab = "datetime", ylab = "Global_reactive_power"))
@@ -93,8 +99,10 @@ title(main = list('Plot 4',cex = 1.5),outer = TRUE, adj = 0.0)
 #
 # =================================================================================
 # Copy the plot to the file
+#  This option don't create the legend in the wanted possition
 # =================================================================================
-dev.copy(png,exp_plot, width=480, heigh = 480)
+# dev.copy(png,exp_plot, width=480, heigh = 480)
+# =================================================================================
 dev.off()
 
 options(warn=-1)
